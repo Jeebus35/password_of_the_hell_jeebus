@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
     redirect_to gossips_path
     else 
       flash.now[:danger] = 'Invalid email/password combination'
-      render new_user_path
+      redirect_to contact_path
     end
   end
 
