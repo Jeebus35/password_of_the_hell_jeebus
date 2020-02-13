@@ -1,0 +1,29 @@
+<% if params[:commit] == "Create Post" %>
+  <p class="container alert alert-success d-flex justify-content-center" role="alert">The super potin was succesfully saved !</p>
+<% end %>
+
+<div class="jumbotron">
+  <div class="container">
+    <h2 class="display-4">Bienvenue sur ce super site de potins !</h2>
+    <h2 class="display-5">Toutes les petites fouines comme toi trouveront leur bonheur ;)</h2> <br/>
+    <p>Va voir en-dessous pour consulter toute la liste des potins, vite, vite, régale-toi :</p>
+  </div>
+</div>
+
+<% Gossip.all.each do |gossip| %>
+  <div class="container text-center">    
+	  <div class="row">
+			<div class="col-sm-5">
+			  <div class="well">
+			  	<p> <%= gossip.user.first_name %> </p>
+			  </div>
+			</div>
+			<div class="col-sm-7">
+			  <div class="well">
+			    <p> <%= gossip.title %> </p>
+			    <p> <%= link_to '(voir le potin)', gossip_path(gossip.id) %> </p>
+			  </div>
+			</div>
+		</div>
+	</div>
+<% end %>
